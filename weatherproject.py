@@ -7,12 +7,14 @@ complete_api_link = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&
 api_link = requests.get(complete_api_link)
 api_data = api_link.json()
 
+#variables to store and display data
 temperature=((api_data['main']['temp'])-273.15)
 weather_desc=api_data['weather'][0]['description']
 humidity=api_data['main']['humidity']
 wind_speed=api_data['wind']['speed']
 date_time = datetime.now().strftime("%d %b %Y | %I:%M:%S %p")
 
+#print the data
 print ("-------------------------------------------------------------")
 print ("Weather Stats for - {}  || {}".format(city.upper(), date_time))
 print ("-------------------------------------------------------------")
